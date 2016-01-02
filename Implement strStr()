@@ -1,0 +1,67 @@
+//my first solution
+//null!=isEmpty()->return true when length=0
+//indexOf() starts from 0
+class Solution {
+    /**
+     * Returns a index to the first occurrence of target in source,
+     * or -1  if target is not part of source.
+     * @param source string to be scanned.
+     * @param target string containing the sequence of characters to match.
+     */
+    //my fisrt solution
+    public int strStr(String source, String target) {
+        //write your code here
+        
+        if(source == null || target == null)
+        {
+            return -1;
+        }
+        
+        int num;
+        num = source.indexOf(target);
+        if (num == -1) 
+        {
+            return -1;
+        }else{
+            return num;
+        }
+    }
+}
+
+
+
+
+9C answer
+class Solution {
+    /**
+     * Returns a index to the first occurrence of target in source,
+     * or -1  if target is not part of source.
+     * @param source string to be scanned.
+     * @param target string containing the sequence of characters to match.
+     */
+    //9chapters answer
+    public int strStr(String source, String target) {
+        //write your code here
+        if (source == null || target == null){
+            return -1;
+        }
+        int i = 0;
+        //i<s-t+1 || i<=s-t
+        for (i = 0; i < source.length() - target.length() + 1; i++){
+            int j = 0;
+            for (j = 0; j < target.length(); j++){
+                if (source.charAt(i+j) != target.charAt(j)){
+                    break;
+                }
+            }
+            //j已经+1
+            //finished loop, target found
+            if (j == target.length()){
+                return i;
+            }
+        }
+
+        
+        return -1;
+    }
+}
